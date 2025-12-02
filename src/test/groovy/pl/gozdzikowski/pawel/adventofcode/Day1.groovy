@@ -42,7 +42,6 @@ L82"""
             Input input = new FileInput("day1.txt")
         expect:
             secretEntrance.countHowManyMoved(input).left() == 1145
-
     }
 
     def 'should count number of dials part2'() {
