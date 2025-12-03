@@ -2,6 +2,8 @@ package pl.gozdzikowski.pawel.adventofcode.day3;
 
 import pl.gozdzikowski.pawel.adventofcode.shared.input.Input;
 
+import java.util.Arrays;
+
 public class Lobby {
 
     public long findSumOfMaxVoltageOfLength(Input input, int length) {
@@ -12,12 +14,12 @@ public class Lobby {
     }
 
     private Long findAllDigitsOfLength(String input, int length) {
-        String[] splitNumbers = input.split("");
+        Long[] splitNumbers = Arrays.stream(input.split("")).map(Long::valueOf).toArray(Long[]::new);
         StringBuilder finalNumber = new StringBuilder();
         int currentMaxIndex = 0;
         while (length > 0) {
             for (int i = currentMaxIndex; i < splitNumbers.length - length + 1; i++) {
-                if (Long.parseLong(splitNumbers[i]) > Long.parseLong(splitNumbers[currentMaxIndex])) {
+                if (splitNumbers[i] > splitNumbers[currentMaxIndex]) {
                     currentMaxIndex = i;
                 }
             }
