@@ -12,8 +12,8 @@ public class Cafeteria {
     public long howManyIsFresh(Input input) {
         String[] split = input.getContent().split("\\n\\n");
         List<Range> ranges = Arrays.stream(split[0].split("\\n")).map(this::toRange).toList();
-        List<Long> ingiridients = Arrays.stream(split[1].split("\\n")).map(Long::valueOf).toList();
-        return ingiridients.stream().filter((el) ->
+        List<Long> ingredients = Arrays.stream(split[1].split("\\n")).map(Long::valueOf).toList();
+        return ingredients.stream().filter((el) ->
                 ranges.stream().anyMatch((range) -> range.contains(el))
         ).count();
     }
